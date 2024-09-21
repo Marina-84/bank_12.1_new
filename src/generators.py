@@ -22,9 +22,9 @@ def transaction_descriptions(transactions: list) -> Iterator:
         yield description.get("description")
 
 
-def card_number_generator(start: int, end: int) -> Iterator:
+def card_number_generator(start: int, stop: int) -> Iterator:
     """Функция генерирует номера карт в указанном диапазоне"""
-    for num in range(start, end + 1):
+    for num in range(start, stop + 1):
         card_number = str(num)
         while len(card_number) < 16:
             card_number += "0"
