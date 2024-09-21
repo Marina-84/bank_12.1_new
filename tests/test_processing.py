@@ -1,7 +1,7 @@
 from src.processing import filter_by_state, sort_by_date
 
 
-def test_sort_by_date() -> None:
+def test_sort_by_date(list) -> None:
     """Тестирование функции на сортировку списка словарей по дате"""
     assert sort_by_date(
         [
