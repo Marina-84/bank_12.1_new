@@ -1,9 +1,9 @@
+import pytest
 from typing import Any
-
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
-def test_card_number_generator() -> None:
+def test_card_number_generator() -> Any:
     """Функция тестирует генератор номеров карт"""
     card_number = card_number_generator(1, 3)
     try:
