@@ -3,7 +3,7 @@ from typing import Callable, Optional, Any
 
 
 def log(filename: Optional[str]) -> Callable:
-    """Decorator create log about function operation."""
+    """Декоратор создает log в функции."""
 
     def my_decorator(func: Callable) -> Callable:
         @wraps(func)
@@ -14,9 +14,9 @@ def log(filename: Optional[str]) -> Callable:
                 # time_2 = time()
                 if filename:
                     with open(filename, "a") as file:
-                        file.write(f"{func.__name__} ok")
+                        file.write(f"{func.__name__} ok\n")
                 else:
-                    print(f"{func.__name__} ok")
+                    print(f"{func.__name__} ok\n")
                 return result
             except Exception as e:
                 if filename:
@@ -37,4 +37,4 @@ def my_function(x: int, y: int) -> int:
     return x + y
 
 
-my_function(3, 3)
+my_function(2, 5)
