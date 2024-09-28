@@ -1,4 +1,1 @@
-my_function ok
-my_decorator ok
-my_function ok
-my_decorator ok
+test_log error: TypeError. Inputs: (), {}
