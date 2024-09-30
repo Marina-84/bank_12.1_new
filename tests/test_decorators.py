@@ -1,26 +1,52 @@
 from typing import Any
-
+from src.decorators import log
 import pytest
 
-from src.decorators import log, my_function
+
+def test_correct_log_in_console(capsys):
+    @log()
+    def my_function(x: Any, y: Any) -> Any:
+        """Функция складывает два значения"""
+        return x + y
+
+    my_function(1, 2)
+    print('my_function ok')
+    captured = capsys.readouterr()
+    assert captured.out == "my_function ok\n"
 
 
-@log(filename="mylog.txt")
-def test_log(capsys) -> Any:
-    with pytest.raises(Exception):
-        captured = capsys.readouterr()
-        assert captured.out == Exception
-        my_function(x=[3], y=[1, 2, 3])
+def test_correct_log_in_file():
+    @log(filename='test.log')
+    def my_function(x: Any, y: Any) -> Any:
+        """Функция складывает два значения"""
+        return x + y
+
+    my_function(1, 2)
+    with open("test.log") as f:
+        row = f.read().split("\n")[0]
+    assert row == "my_function ok"
 
 
-def test_my_function(x=1, y=2) -> Any:
-    result = x + y
-    try:
-        assert result == "5"
-    except AssertionError:
-        print("Error")
+def test_incorrect_log_in_console(capsys):
+    @log()
+    def my_function(x: Any, y: int) -> Any:
+        """Функция складывает два значения"""
+        return x + y
+
+    my_function(1, '2')
+    print('my_function error')
+    captured = capsys.readouterr()
+    assert captured.out == "my_function error\n"
 
 
-def test_my_function_2(x=1, y=2) -> Any:
-    result = x + y
-    assert result == 3
+def test_incorrect_log_in_file():
+    @log(filename='test.log')
+    def my_function(x: int, y: int) -> int:
+        try:
+            with pytest.raises(TypeError, match='my_function error'):
+                my_function('1', '2')
+        finally:
+            with open("test.log") as f:
+                row = f.read().split("\n")[0]
+                assert row == "my_function error"
+
