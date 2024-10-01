@@ -1,7 +1,7 @@
 from typing import Any, Callable, Optional
 
 
-def log(filename: Optional[str] = "test.log") -> Callable:
+def log(filename: Optional[str] = None) -> Callable:
     """Декоратор создает логирование в функции."""
 
     def my_decorator(func) -> Any:
