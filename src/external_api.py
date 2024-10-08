@@ -17,20 +17,28 @@ def current_conversion(transactions: dict):
     status_code = response.status_code
     if status_code != 200:
         print(response.reason)
+    elif curr_from == "RUB":
+        return amount
     else:
         result = response.json()
         data = result.get("result")
-        print(data)
+        return data
 
 
 transactions = {
     "id": 863064926,
     "state": "EXECUTED",
     "date": "2019-12-08T22:46:21.935582",
-    "operationAmount": {"amount": "41096.24", "currency": {"name": "USD", "code": "USD"}},
+    "operationAmount": {
+      "amount": "41096.24",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
     "description": "Открытие вклада",
-    "to": "Счет 90424923579946435907",
-}
+    "to": "Счет 90424923579946435907"
+  }
 
 if __name__ == "__main__":
     current_conversion(transactions)
