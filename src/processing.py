@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def sort_by_date(list_dictionaries: list[dict[str, Any]], reverse=True) -> list[dict[str, Any]] | bool:
+def sort_by_date(list_dictionaries: list[dict[str, Any]], reverse: Any = True) -> list[dict[str, Any]] | bool:
     """Функция фильтрует словари по дате"""
     sorted_dict = sorted(list_dictionaries, key=lambda x: x["date"], reverse=reverse)
     return sorted_dict
