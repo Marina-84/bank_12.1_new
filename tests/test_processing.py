@@ -3,7 +3,8 @@ from typing import Any
 from src.processing import filter_by_state, sort_by_date
 
 
-def test_sort_by_date(incoming_date: Any) -> Any:
+
+def test_sort_by_date() -> None:
     """Тестирование функции на сортировку списка словарей по дате"""
     assert sort_by_date(
         [
