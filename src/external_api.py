@@ -16,7 +16,7 @@ def current_conversion(transactions: dict) -> Optional[float]:
     payload: dict = {}
     headers = {"apikey": apikey}
     response = requests.get(url, headers=headers, data=payload)
-    status_code = response.status_codegit
+    status_code = response.status_code
     if status_code != 200:
         print(response.reason)
     elif curr_from == "RUB":
