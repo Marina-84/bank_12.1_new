@@ -10,7 +10,7 @@ abs_file_path = os.path.abspath(rel_file_path)
 
 # Добавляем логгер, который записывает логи в файл.
 logger = logging.getLogger("masks")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler(abs_file_path, "w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
@@ -38,4 +38,4 @@ def get_mask_account(acc_num: str) -> str:
 
 
 if __name__ == "__main__":
-    get_mask_card_number("3456789043215678")
+    get_mask_card_number("3888884567895678")

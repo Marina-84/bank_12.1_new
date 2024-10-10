@@ -15,7 +15,7 @@ abs_src_file_path = os.path.abspath(rel_src_file_path)
 
 # Добавляем логгер, который записывает логи в файл.
 logger = logging.getLogger("utils")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler(abs_log_file_path, "w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
@@ -41,4 +41,4 @@ def get_transactions_list(path: str) -> list[dict]:
 
 
 if __name__ == "__main__":
-    get_transactions_list("C:\\Users\\marin\\PycharmProjects\\my_prj\\bank_10.2_new\\data\\operations.json")
+        get_transactions_list("C:\\Users\\marin\\PycharmProjects\\my_prj\\bank_10.2_new\\data\\operations.json")
