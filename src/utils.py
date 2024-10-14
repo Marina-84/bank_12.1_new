@@ -2,6 +2,7 @@ import json
 import logging
 import os
 
+
 # Получаем абсолютный путь до текущей директории
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -41,4 +42,4 @@ def get_transactions_list(path: str) -> list[dict]:
 
 
 if __name__ == "__main__":
-        get_transactions_list("C:\\Users\\marin\\PycharmProjects\\my_prj\\bank_10.2_new\\data\\operations.json")
+    get_transactions_list("C:\\Users\\marin\\PycharmProjects\\my_prj\\bank_10.2_new\\data\\operations.json")
