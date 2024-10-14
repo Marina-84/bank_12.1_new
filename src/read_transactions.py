@@ -28,6 +28,7 @@ def read_csv_transactions(file_name: str) -> list[dict]:
             result.append(row_dict)
         return result
 
+
 def read_xlsx_transactions(file_name: str) -> list[dict]:
     """Функция, которая считывает данные из файла XLSX и преобразовывает в список словарей"""
     df = pd.read_excel(file_name)
