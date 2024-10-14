@@ -1,7 +1,4 @@
 from unittest.mock import patch
-import pytest
-import requests
-
 from src.external_api import current_conversion
 
 transactions = {
