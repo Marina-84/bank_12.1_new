@@ -1,4 +1,5 @@
 from typing import Any
+
 from src.decorators import log
 
 
@@ -14,7 +15,7 @@ def test_correct_log_in_console(capsys) -> Any:
 
 
 def test_correct_log_in_file() -> Any:
-    @log(filename='test.log')
+    @log(filename="test.log")
     def my_function(x: Any, y: Any) -> Any:
         """Функция складывает два значения"""
         return x + y
@@ -37,7 +38,7 @@ def test_incorrect_log_in_console(capsys) -> Any:
 
 
 def test_incorrect_log_in_file() -> Any:
-    @log(filename='test.log')
+    @log(filename="test.log")
     def my_function(x: Any, y: Any) -> Any:
         """Функция складывает два значения"""
         return x + y
