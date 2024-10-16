@@ -12,7 +12,7 @@ PATH_TO_FILE_EXCEL = os.path.join(os.path.dirname(os.path.dirname(__file__)), "d
 
 
 def main():
-    """Main function of the Project."""
+    """Главная функция проекта"""
 
     while True:
         menu_item = input(
@@ -38,14 +38,14 @@ def main():
         else:
             print("Такого пункта в меню нет, попробуйте еще раз.")
 
-    state_list = ["executed", "canceled", "pending"]
+    state_list = ["EXECUTED", "CANCELED", "PENDING"]
 
     while True:
         state = input(
             """Введите статус, по которому необходимо выполнить фильтрацию.
 Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING.
 """
-        ).lower()
+        ).upper()
 
         if state not in state_list:
             print(f'Статус операции "{state}" недоступен.')
